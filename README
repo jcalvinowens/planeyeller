@@ -1,0 +1,22 @@
+planeyeller.py
+==============
+
+This is a simplistic Python script which uses dump1090 and espeak to announce
+airplanes flying overhead. There's no reason it shouldn't be portable, but it
+has only been tested on Linux and FreeBSD.
+
+The script requires dump1090 (or any of its forks), and espeak:
+
+	$ apt install espeak dump1090-mutability # Debian, Ubuntu
+	$ pkg install espeak dump1090 # FreeBSD
+
+Once those are installed, connect an RTL-SDR, and run the script:
+
+	$ ./planeyeller.py --lat XX.XXXXX --lon YYY.YYYYY --alt ZZZZ --live
+
+The latitude, longitude, and altitude are that of the observer who will be
+listening to the announcements, not the receiver or antenna. By default,
+airplanes are announced when they are 45 degrees above the horizon. Any
+desired angle can be specified with "--angle", including negative angles.
+
+A set of simple testcases are provided in /tests.
